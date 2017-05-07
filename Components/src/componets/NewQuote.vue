@@ -21,8 +21,13 @@
         },
         methods: {
             createNew() {
-               this.$emit('quoteAdded', this.quote);
-               this.quote = ''; 
+               if(this.quote.trim().length === 0) {
+                   alert("Write a quote please!");
+               }
+               else {
+                    this.$emit('quoteAdded', this.quote);
+                    this.quote = ''; 
+               } 
             }
         }
     }
